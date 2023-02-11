@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
-import './index.css';
+import './css/index.css';
+import './css/reset.css';
+import './css/basic.css';
+import { Theme } from 'styled-components/themeProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <Theme>
     <App />
-  </React.StrictMode>
+  </Theme>
+  // </React.StrictMode>
 );

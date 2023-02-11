@@ -1,16 +1,22 @@
+import { Form } from './Form/Form';
+import { Haeder } from './Header/Header';
+import { Hero } from './Hero/Hero';
+import { Section } from './Section/Section';
+import { Users } from './Users/Users';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Haeder />
+      <main>
+        <Hero />
+        <Section title="Working with GET request">
+          <Users />
+        </Section>
+        <Section title="Working with POST request">
+          <Form />
+        </Section>
+      </main>
+    </>
   );
 };

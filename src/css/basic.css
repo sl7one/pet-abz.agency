@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito-Regular.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #f8f8f8;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: calc(40 / 40);
+}
+
+h2,
+h3,
+h4,
+p,
+a,
+span,
+button {
+  font-size: 16px;
+  line-height: calc(26 / 16);
+  font-weight: normal;
+}
