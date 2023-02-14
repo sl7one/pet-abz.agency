@@ -316,7 +316,7 @@ export const RadioLabel = styled.label`
     top: 0;
     left: 0;
     opacity: 0;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 80%);
     transition: transform 350ms ease-in-out, opacity 350ms ease-in-out;
   }
 
@@ -338,7 +338,7 @@ export const RadioInput = styled.input`
 
   &:checked ~ ${RadioLabel}::after {
     opacity: 1;
-    transform: translate(50%, 50%);
+    transform: translate(50%, 80%);
   }
 `;
 export const PhoneInputComponent = styled(PhoneInput)`
@@ -374,7 +374,6 @@ export const UploadWrapper = styled.div`
   position: relative;
   margin-top: 47px;
 `;
-
 export const UploadLabel = styled(Label)`
   display: flex;
   justify-content: center;

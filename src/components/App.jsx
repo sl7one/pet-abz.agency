@@ -5,6 +5,7 @@ import { Section } from './Section/Section';
 import { Users } from './Users/Users';
 
 export const App = () => {
+  console.log('APP RENDER');
   return (
     <>
       <Haeder />

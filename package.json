@@ -15,7 +15,6 @@
     "react-phone-number-input": "^3.2.18",
     "react-scripts": "5.0.1",
     "react-tooltip": "^5.7.5",
-    "react-uploader": "^3.5.0",
     "store": "^2.0.12",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.3"

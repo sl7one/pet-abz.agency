@@ -33,6 +33,7 @@ export const Users = () => {
       }
     };
     getUserList();
+    console.log('GET_USERS');
   }, []);
 
   useEffect(() => {
@@ -49,6 +50,8 @@ export const Users = () => {
       }
     };
     getUserList();
+
+    console.log('LOAD MORE PAGE');
   }, [page]);
 
   const getMoreUsers = () => {
@@ -81,6 +84,9 @@ export const Users = () => {
     </UserItem>
   ));
 
+  if (isLoading) return;
+
+  console.log('USER RENDER');
   return (
     <>
       <UserList>

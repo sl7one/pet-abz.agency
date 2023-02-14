@@ -20,7 +20,7 @@ import store from 'store';
 import { useEffect, useState } from 'react';
 import 'react-phone-number-input/style.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import { API__POST__USER, API__TOKEN } from 'API/API';
+import { API__TOKEN } from 'API/API';
 
 export const Form = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +36,6 @@ export const Form = () => {
     positionIsValid: false,
     fileIsValid: false,
   });
-  const [err, setError] = useState('');
 
   const {
     name: userName,
@@ -95,8 +94,8 @@ export const Form = () => {
       phoneIsValid === 'true' &&
       positionIsValid === 'true' &&
       fileIsValid === 'true'
-        ? false
-        : true;
+        ? true
+        : false;
 
     setFormData(prev => ({
       ...prev,
@@ -110,9 +109,6 @@ export const Form = () => {
   }, [userName, email, position, phone, file]);
 
   useEffect(() => {
-    const token = store.get('token');
-    if (token) return;
-
     async function getToken() {
       try {
         const response = await API__TOKEN();
@@ -125,23 +121,6 @@ export const Form = () => {
     }
     getToken();
   }, []);
-
-  useEffect(() => {
-    if (!err) return;
-    console.log('error');
-    // async function getToken() {
-    //   try {
-    //     const response = await API__TOKEN();
-    //     store.set('token', { token: response.token });
-    //     console.log('token__saved. New TOKEN~');
-    //   } catch (e) {
-    //     console.log(e.message);
-    //   } finally {
-    //   }
-    // }
-    // getToken();
-    setError('');
-  }, [err]);
 
   const onChange = ({ target }) => {
     const { name, value } = target;
@@ -156,6 +135,7 @@ export const Form = () => {
   };
 
   const onFileChange = ({ target }) => {
+    console.log(target);
     const file = target.files[0];
     setFormData(prev => ({ ...prev, file }));
   };
@@ -196,7 +176,7 @@ export const Form = () => {
         if (!data.success)
           Report.failure('Cant be added, because:', data.message, 'Close');
 
-        Report.success('Success ', 'User has been addad to database', 'Okay');
+        Report.success('Success ', data.message, 'Okay');
         console.log(data);
       })
       .catch(e => console.log(e));
@@ -214,10 +194,6 @@ export const Form = () => {
       positionIsValid: false,
       fileIsValid: false,
     });
-  };
-
-  const onClick = () => {
-    setError(255);
   };
 
   return (
@@ -324,13 +300,9 @@ export const Form = () => {
 
         {file?.name && <UploadFile>{file.name}</UploadFile>}
       </UploadWrapper>
-      <FormBtn type="submit" disabled={formIsValid}>
+      <FormBtn type="submit" disabled={!formIsValid}>
         Sign up
       </FormBtn>
-
-      <button type="button" onClick={onClick}>
-        TEST
-      </button>
     </UserForm>
   );
 };
