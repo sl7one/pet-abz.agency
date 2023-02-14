@@ -23,6 +23,16 @@ a,
 span,
 button {
   font-size: 16px;
-  line-height: calc(26 / 16);
+  line-height: 1.625;
   font-weight: normal;
+}
+
+::placeholder {
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+label {
+  font-size: 16px;
+  line-height: 1.625;
 }
