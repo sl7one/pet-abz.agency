@@ -228,7 +228,9 @@ export const Form = ({ setIsUploadFile }) => {
             onChange={onChange}
             isvld={emailIsValid}
           />
-          {emailIsValid === 'false' && <ErrorText>Set name field</ErrorText>}
+          {emailIsValid === 'false' && (
+            <ErrorText>Set correct email field</ErrorText>
+          )}
         </Label>
         <Label>
           <PhoneInputComponent

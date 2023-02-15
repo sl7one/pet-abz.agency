@@ -113,8 +113,6 @@ export const Users = ({ isUploadFile }) => {
       );
     });
 
-  console.log('RENDER');
-
   return (
     <>
       <UserList>

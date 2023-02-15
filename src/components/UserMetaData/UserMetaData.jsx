@@ -14,7 +14,14 @@ export const UserMetaData = ({ id, text, children }) => {
       <Text id={id} data-tooltip-content={text}>
         {children}
       </Text>
-      <Tooltip anchorId={id} noArrow={true} delayHide={150} style={styles} />
+      <Tooltip
+        anchorId={id}
+        noArrow={true}
+        delayHide={150}
+        style={styles}
+        place={'bottom'}
+        // position={{ x: 5, y: 5 }}
+      />
     </>
   );
 };

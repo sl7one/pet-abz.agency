@@ -411,7 +411,7 @@ export const UploadLabel = styled(Label)`
     border-radius: 4px 0px 0px 4px;
     bottom: 0;
     left: 0;
-    height: 54px;
+    height: 52px;
     width: 83px;
   }
 `;
@@ -436,6 +436,10 @@ export const UploadFile = styled(Text)`
   top: 50%;
   left: 25%;
   transform: translate(0, -50%);
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   background-color: ${({ theme }) => theme.colors.disabledBTN};
   padding: 5px;
