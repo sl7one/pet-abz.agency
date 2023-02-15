@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/pet-abz.agency/static/css/main.8ad7a0c4.css",
+    "main.js": "/pet-abz.agency/static/js/main.fb323dc6.js",
+    "static/media/bg-pic@2x.jpg": "/pet-abz.agency/static/media/bg-pic@2x.a32582ba883573716c90.jpg",
+    "static/media/Nunito-Regular.ttf": "/pet-abz.agency/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
+    "static/media/bg-pic.jpg": "/pet-abz.agency/static/media/bg-pic.8ef9dd8e77e47cc296d9.jpg",
+    "static/media/Logo.svg": "/pet-abz.agency/static/media/Logo.8f783abd29c95eb1dec8eaf556755b85.svg",
+    "index.html": "/pet-abz.agency/index.html",
+    "main.8ad7a0c4.css.map": "/pet-abz.agency/static/css/main.8ad7a0c4.css.map",
+    "main.fb323dc6.js.map": "/pet-abz.agency/static/js/main.fb323dc6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ad7a0c4.css",
+    "static/js/main.fb323dc6.js"
+  ]
+}
