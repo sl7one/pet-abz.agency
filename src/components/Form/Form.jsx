@@ -22,7 +22,7 @@ import 'react-phone-number-input/style.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { API__TOKEN } from 'API/API';
 
-export const Form = () => {
+export const Form = ({ setIsUploadFile }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -113,7 +113,6 @@ export const Form = () => {
       try {
         const response = await API__TOKEN();
         store.set('token', { token: response.token });
-        console.log('token__saved');
       } catch (e) {
         console.log(e.message);
       } finally {
@@ -135,7 +134,6 @@ export const Form = () => {
   };
 
   const onFileChange = ({ target }) => {
-    console.log(target);
     const file = target.files[0];
     setFormData(prev => ({ ...prev, file }));
   };
@@ -162,6 +160,8 @@ export const Form = () => {
     // };
     // postUser();
 
+    // ___________________________________________________________
+
     const { token } = store.get('token');
 
     fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
@@ -177,11 +177,11 @@ export const Form = () => {
           Report.failure('Cant be added, because:', data.message, 'Close');
 
         Report.success('Success ', data.message, 'Okay');
-        console.log(data);
       })
       .catch(e => console.log(e));
 
-    setFormData({
+    setFormData(prev => ({
+      ...prev,
       name: '',
       phone: '',
       email: '',
@@ -193,7 +193,14 @@ export const Form = () => {
       phoneIsValid: 'init',
       positionIsValid: false,
       fileIsValid: false,
+    }));
+
+    [...document.querySelectorAll('[type="radio"]')].forEach(item => {
+      item.checked = false;
     });
+
+    setIsUploadFile(Date.now());
+    console.log('UPLOAD__FILE');
   };
 
   return (
@@ -221,7 +228,7 @@ export const Form = () => {
             onChange={onChange}
             isvld={emailIsValid}
           />
-          {!emailIsValid === 'false' && <ErrorText>Set name field</ErrorText>}
+          {emailIsValid === 'false' && <ErrorText>Set name field</ErrorText>}
         </Label>
         <Label>
           <PhoneInputComponent

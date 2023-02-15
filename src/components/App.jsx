@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Form } from './Form/Form';
 import { Haeder } from './Header/Header';
 import { Hero } from './Hero/Hero';
@@ -5,17 +6,17 @@ import { Section } from './Section/Section';
 import { Users } from './Users/Users';
 
 export const App = () => {
-  console.log('APP RENDER');
+  const [isUploadFile, setIsUploadFile] = useState('');
   return (
     <>
       <Haeder />
       <main>
         <Hero />
         <Section title="Working with GET request">
-          <Users />
+          <Users isUploadFile={isUploadFile} />
         </Section>
         <Section title="Working with POST request">
-          <Form />
+          <Form setIsUploadFile={setIsUploadFile} />
         </Section>
       </main>
     </>
